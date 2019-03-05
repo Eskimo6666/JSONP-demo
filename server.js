@@ -37,16 +37,18 @@ var server = http.createServer(function(request, response){
   }else if(path === '/pay'){  
     var amount = fs.readFileSync('./db','utf8')
     var newAmount = amount - 1
-    if(Math.random()>0.5){
+    /* if(Math.random()>0.5){ */
       fs.writeFileSync('./db',newAmount)
       response.statusCode = 200
-      response.setHeader('Content-Type', 'image/jpg') 
-      response.write(fs.readFileSync('./dog.jpg'))     
-    }else{
+      response.setHeader('Content-Type', 'application/javascript') 
+      response.write(`
+        amount.innerText = amount.innerText - 1
+      `)     
+/*     }else{
       response.statusCode = 400
       response.write('fail')
-    }
-    response.end()
+    }*/
+    response.end() 
   }else{
     response.statusCode = 400
     response.setHeader('Cotent-Type','text/html;charset=utf-8')
