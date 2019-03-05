@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="/style.css">
+    <script src="/main.js?callback=xxx"></script>
+
+
+    <h5>您的账户余额是 <span id="amount">&&amount&&</span></h5>
+    <button id="button">付款1块钱</button>
+    <script>
+        button.addEventListener('click',(e)=>{
+            let image = document.createElement('img')
+            image.src = '/pay'
+            image.onload = function(){
+                alert('打钱成功')
+            }
+            image.onerror = function(){
+                alert('打钱失败')
+            }
+        })
+    </script>
+
+</html>
