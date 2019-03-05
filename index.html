@@ -12,13 +12,17 @@
     <script>
         button.addEventListener('click',(e)=>{
             let script = document.createElement('script')
-            script.src = '/pay'
+            script.src = 'http://jack.com:8002/pay'
             document.body.appendChild(script) //script需要放在body里面才有效
             /* script.onload = function(){
                 alert('success')
             } */
+            script.onload = function(e){
+                e.currentTarget.remove()
+            }
             script.onerror = function(){
                 alert('fail')
+                e.currentTarget.remove()
             }
             
             
