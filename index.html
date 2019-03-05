@@ -10,9 +10,16 @@
     <h5>您的账户余额是 <span id="amount">&&amount&&</span></h5>
     <button id="button">付款1块钱</button>
     <script>
+        window.yyy = function(result){
+            if(result === 'success'){
+                amount.innerText = amount.innerText - 1
+            }else{
+
+            }
+        }
         button.addEventListener('click',(e)=>{
             let script = document.createElement('script')
-            script.src = 'http://jack.com:8002/pay'
+            script.src = 'http://jack.com:8002/pay?callbackName=yyy'
             document.body.appendChild(script) //script需要放在body里面才有效
             /* script.onload = function(){
                 alert('success')
